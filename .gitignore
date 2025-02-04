@@ -1,0 +1,7 @@
+venv/
+.idea/
+
+# Mac OS
+.DS_Store
+
+test_*.py
