@@ -1,5 +1,7 @@
 import os
 
+import dotenv
+
 from aiogram import Bot, Dispatcher, F
 from aiogram.filters import Command
 from aiogram.filters import ChatMemberUpdatedFilter, KICKED, MEMBER
@@ -7,7 +9,9 @@ from aiogram.filters import BaseFilter
 from aiogram.types import Message, ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemove
 from aiogram.types import ChatMemberUpdated
 
+dotenv.load_dotenv()
 BOT_TOKEN = os.getenv('BOT_TOKEN')
+MAIN_ADMIN_ID = int(os.getenv('MAIN_ADMIN_ID'))
 
 TEXT_START = ('Для начала работы нажмите кнопку «Поделиться номером». '
               'Мы используем ваш номер телефона только для регистрации и '
@@ -17,7 +21,7 @@ TEXT_HELP = ('/start - используется 1 раз только для р�
              '/help - вызвать подсказку по управлению ботом')
 
 # список админов бота
-admin_ids: list[int] = [214904629]
+admin_ids: list[int] = [MAIN_ADMIN_ID]
 
 users = {}
 
